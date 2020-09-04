@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://students.demoo.com.cn/wap/plug/slak -->
+<html lang="en" class="pixel-ratio-1 android android-9"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>出校凭证</title>
+    <link rel="stylesheet" href="./skip_files/weui.css">
+    <link rel="stylesheet" href="./skip_files/weuix.css">
+    <link rel="stylesheet" href="./skip_files/common.css">
+    <script src="./skip_files/jquery.min.js.x"></script>
+    <script src="./skip_files/jquery.validate.min.js.x"></script>
+    <script src="./skip_files/jquery.form.min.js.x"></script>
+    <script src="./skip_files/zepto.min.js.x"></script>
+    <script src="./skip_files/zepto.weui.js.x"></script>
+    <script src="./skip_files/php.js.x"></script>
+    <script src="./skip_files/picker.city.js.x"></script>
+    <script src="./skip_files/lrz.min.js.x"></script>
+</head>
+<body>
+<div id="popout"></div>
+<div id="mask"></div>
+<div id="navigation"></div>
+<div id="content">    <style>
+        .weui-pay-m::before {
+            content: none;
+        }
+    </style>
+    <script>
+        $(function () {
+
+            $().ready(function () {
+                $(".tab-menu li").click(function () {
+                    //通过 .index()方法获取元素下标，从0开始，赋值给某个变量
+                    var _index = $(this).index();
+                    //让内容框的第 _index 个显示出来，其他的被隐藏
+                    $(".tab-box>div").eq(_index).show().siblings().hide();
+                    //改变选中时候的选项框的样式，移除其他几个选项的样式
+                    $(this).addClass("change").siblings().removeClass("change");
+                });
+            });
+
+
+        })
+
+    </script>
+	<script>
+        function datetime() {
+            //创建日期时间对象
+            var datetime = new Date();
+            //获取组件
+            var month = datetime.getMonth() + 1;
+            var day = datetime.getDate();
+            var hour = datetime.getHours();
+            var minute = datetime.getMinutes();
+            var second = datetime.getSeconds();
+			if (month < 10) {
+                var month = 0 + "" + month;
+            }
+            if (day < 10) {
+                var day = 0 + "" + day;
+            }
+            if (hour < 10) {
+                var hour = 0 + "" + hour;
+            }
+            if (minute < 10) {
+                var minute = 0 + "" + minute;
+            }
+            if (second < 10) {
+                var second = 0 + "" + second;
+            }
+            var nowDate =  "2020-" + month + "-" + day + "--下午(13:30--20:00)";
+            var nowTime1 = "2020-" + month + "-" + day + " "+"07:35:24";
+			var nowTime2 = "2020-" + month + "-" + day + " "+"13:15:07";
+			var nowTime3 = "2020-" + month + "-" + day + " "+ hour + ":" + minute + ":03";
+            //更新内容 2020-09-04 09:51:02
+            $(".date-wrap").html(nowDate);
+            $(".time1-wrap").html(nowTime1);
+			$(".time2-wrap").html(nowTime2);
+			$(".time3-wrap").html(nowTime3);
+        }
+
+        setInterval(datetime, 1000);
+        $(function () {
+            var m = 2;
+            var s = 59;
+            var timer = setInterval(function () {
+                if (m == 0 && s == 0) {
+                    clearInterval(timer);
+                                            window.location.href = "/wap/plug/slak";
+                                    }
+                if (s < 10) {
+                    //如果秒数少于10在前面加上0
+                    $('.countdown').html(m + '分0' + s + '秒');
+                } else {
+                    $('.countdown').html(m + '分' + s + '秒');
+                }
+                s--;
+                if (s < 0) {
+                    //如果秒数少于0就变成59秒
+                    s = 59;
+                    m--;
+                }
+            }, 1000)
+        })
+    </script>
+	
+	
+    <div class="weui-tab" style="height:auto;">
+        <div>
+            <img style="width: 100%" src="./skip_files/1592876109703.png" alt="">
+        </div>
+        <div class="weui-tab__panel">
+            <div class="tab-menu">
+                <ul class="tab-wrap">
+                    <li class="tab-title change" style="border-right: 0;">
+                        <span class="tab-left">临时凭证</span>
+                    </li>
+                    <li class="tab-title">
+                        <span class="tab-right">固定凭证</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-box credentials-wrap">
+                <div class="temp-wrap credentials">
+                                                                        <div class="weui-pay-m">
+                                <div class="weui-pay-order">
+                                    <dl class="weui-pay-line">
+                                        <dd class="weui-pay-name"><h3 class="date-wrap" style="font-size: 18px">2020-09-04--下午(13:30--20:00)</h3></dd>
+                                        <dt class="weui-pay-label">使用人：</dt>
+                                        <dd class="weui-pay-e">王春晖(信息与电子工程学院)</dd>
+                                    </dl>
+                                    <dl class="weui-pay-line">
+                                        <dt class="weui-pay-label">审核时间：</dt>
+                                        <dd class="weui-pay-e"><h3 class="time1-wrap" style="font-size: 13px;font-weight:normal">2020-09-04 09:51:02</h3></dd>
+                                    </dl>
+                                                                            <dl class="weui-pay-line">
+                                            <dt class="weui-pay-label">出校时间：</dt>
+                                            <dd class="weui-pay-e"><h3 class="time2-wrap" style="font-size: 13px;font-weight:normal">2020-09-04 22:16:09</h3></dd>
+                                        </dl>
+                                                                                                                <dl class="weui-pay-line">
+                                            <dt class="weui-pay-label">返校时间：</dt>
+                                            <dd class="weui-pay-e"><h3 class="time3-wrap" style="font-size: 13px;font-weight:normal">2020-09-04 22:25:52</h3></dd>
+                                        </dl>
+                                                                                                                <dl class="weui-pay-line">
+                                            <dd class="weui-pay-e" style="color:orangered">学生已返校</dd>
+                                        </dl>
+                                    
+
+                                </div>
+                            </div>
+                                                            </div>
+                <div class="regular-wrap credentials">
+                                                                                </div>
+            </div>
+        </div>
+        <div class="weui-tabbar tab-bottom">
+            <a href="https://students.demoo.com.cn/wap/plug/slak" class="weui-tabbar__item weui-bar__item_on">
+                <i class="icon icon-25 f27 weui-tabbar__icon"></i>
+                <p class="weui-tabbar__label">凭证</p>
+            </a>
+            <a href="https://students.demoo.com.cn/wap/plug/slak/apply" class="weui-tabbar__item">
+                <i class="icon icon-67 f27 weui-tabbar__icon"></i>
+                <p class="weui-tabbar__label">申请</p>
+            </a>
+            <a href="https://students.demoo.com.cn/wap/plug/slak/applylist" class="weui-tabbar__item">
+                <i class="icon icon-115 f27 weui-tabbar__icon"></i>
+                <p class="weui-tabbar__label">记录</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function openurl(id) {
+            $.confirm("确认到达?打开后凭证将在3分钟内失效", "您确定已到达门岗处?", function () {
+                window.location.href = "/wap/plug/slak/applycard/" + id;
+            }, function () {
+                //取消操作
+            });
+        }
+
+        function openurl2(id,type) {
+            $.confirm("确认到达?打开后凭证将在3分钟内失效", "您确定已到达门岗处?", function () {
+                window.location.href = "/wap/plug/slak/applycard2/" + id+'/'+type;
+            }, function () {
+
+            });
+        }
+    </script>
+
+</div>
+
+
+</body></html>
